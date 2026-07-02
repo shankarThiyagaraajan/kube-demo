@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     # >>> EDIT THIS to YOUR repo URL after you push this folder to GitHub <<<
-    repoURL: https://github.com/YOUR-USERNAME/gitops-demo.git
+    repoURL: https://github.com/shankarThiyagaraajan/kube-demo.git
     targetRevision: HEAD       # track the default branch
     path: app                  # sync everything under app/
   destination:
