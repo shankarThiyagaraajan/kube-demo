@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  labels:
+    app: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+      annotations:
+        # Bumped on every deploy. Changing this rolls the pods so the NEW page
+        # is served immediately. (Editing only the ConfigMap would NOT restart pods.)
+        configVersion: "3"
+    spec:
+      containers:
+        - name: web
+          image: nginx:1.25            # public image, nothing to build
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: content
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: content
+          configMap:
+            name: web-content
