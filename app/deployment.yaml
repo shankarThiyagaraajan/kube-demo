@@ -5,7 +5,7 @@ metadata:
   labels:
     app: web
 spec:
-  replicas: 1                    # change to 3, push, watch pods scale (instant demo)
+  replicas: 3                    # change to 3, push, watch pods scale (instant demo)
   selector:
     matchLabels:
       app: web
