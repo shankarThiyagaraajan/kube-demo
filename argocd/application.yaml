@@ -19,3 +19,4 @@ spec:
       selfHeal: true           #   revert manual cluster edits back to Git
     syncOptions:
       - CreateNamespace=true   # auto-create the gitops-demo namespace
+
