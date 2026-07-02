@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitops-demo
+  namespace: argocd            # Applications live in the argocd namespace
+spec:
+  project: default
+  source:
+    # >>> EDIT THIS to YOUR repo URL after you push this folder to GitHub <<<
+    repoURL: https://github.com/YOUR-USERNAME/gitops-demo.git
+    targetRevision: HEAD       # track the default branch
+    path: app                  # sync everything under app/
+  destination:
+    server: https://kubernetes.default.svc   # this same (local) cluster
+    namespace: gitops-demo
+  syncPolicy:
+    automated:                 # the 3 lines that make it true GitOps:
+      prune: true              #   delete resources you remove from Git
+      selfHeal: true           #   revert manual cluster edits back to Git
+    syncOptions:
+      - CreateNamespace=true   # auto-create the gitops-demo namespace
