@@ -17,7 +17,7 @@ spec:
         configVersion: "1"     # bump this with every content change -> pods roll
     spec:
       containers:
-        - name: web
+        - name: web2
           image: nginx:1.25
           ports:
             - containerPort: 80

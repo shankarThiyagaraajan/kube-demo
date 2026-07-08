@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/shankarThiyagaraajan/kube-demo.git   # <-- YOUR repo
-    targetRevision: HEAD
+    targetRevision: demo
     path: app
   destination:
     server: https://kubernetes.default.svc

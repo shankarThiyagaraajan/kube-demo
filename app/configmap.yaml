@@ -8,7 +8,7 @@ data:
     <html>
       <head><title>ArgoCD Sync Demo 3</title></head>
       <body style="margin:0;font-family:sans-serif;color:white;background:#2563eb;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-        <h1 style="font-size:6rem;margin:0;">Version 1</h1>
+        <h1 style="font-size:6rem;margin:0;">Version 2</h1>
         <p style="font-size:1.5rem;">Synced by ArgoCD from Git</p>
       </body>
     </html>
