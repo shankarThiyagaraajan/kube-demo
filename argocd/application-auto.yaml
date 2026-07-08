@@ -1,0 +1,22 @@
+# PHASE 2: AUTO sync — same app, but ArgoCD applies every pushed change
+# by itself (plus prune + selfHeal). Apply this OVER the manual one.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sync-demo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/YOUR-USERNAME/argocd-sync-demo.git   # <-- YOUR repo
+    targetRevision: HEAD
+    path: app
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: sync-demo
+  syncPolicy:
+    automated:                 # <-- the difference: dynamic/auto sync
+      prune: true              #     deletes resources removed from Git
+      selfHeal: true           #     reverts manual cluster edits
+    syncOptions:
+      - CreateNamespace=true

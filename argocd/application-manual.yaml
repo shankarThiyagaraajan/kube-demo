@@ -1,0 +1,19 @@
+# PHASE 1: MANUAL sync — ArgoCD detects changes (shows OutOfSync) but waits
+# for YOU to click SYNC in the UI or run `argocd app sync`.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sync-demo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/YOUR-USERNAME/argocd-sync-demo.git   # <-- YOUR repo
+    targetRevision: HEAD
+    path: app
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: sync-demo
+  syncPolicy:                  # NOTE: no "automated" block = manual sync
+    syncOptions:
+      - CreateNamespace=true
