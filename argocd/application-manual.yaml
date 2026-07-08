@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/YOUR-USERNAME/argocd-sync-demo.git   # <-- YOUR repo
+    repoURL: https://github.com/shankarThiyagaraajan/kube-demo.git   # <-- YOUR repo
     targetRevision: HEAD
     path: app
   destination:
